@@ -98,7 +98,10 @@ namespace Laboratorio_6_OOP_201902.Static
             Console.ResetColor();
             Console.Clear();
         }
+        ShowBoard(Board board, int player, int[] lifePoints, int[] attackPoints)
+        {
 
+        }
     }
     
 }

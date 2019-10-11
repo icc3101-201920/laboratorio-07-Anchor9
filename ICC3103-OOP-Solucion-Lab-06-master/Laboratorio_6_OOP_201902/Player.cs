@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Laboratorio_6_OOP_201902
 {
-    public class Player
+    public class Player : IAttackPoints
     {
         //Constantes
         private const int LIFE_POINTS = 2;
@@ -176,6 +176,23 @@ namespace Laboratorio_6_OOP_201902
                 return new SpecialCard(card.Name, card.Type, card.Effect);
             }
         }
+        // El método debe obtener los puntos totales del jugador, y retornar un arreglo con
+        // los puntos totales de ataque.
+        public int[] GetAttackPoints(EnumType line = EnumType.melee)
+        {
+            int[] totalAttack = new int[] { 0, 0 };
+            for (int i = 0; i < 2; i++)
+            {
+                if (playerCards[i].ContainsKey(EnumType.melee))
+                {
+                    foreach (CombatCard card in playerCards[i][EnumType.melee])
+                    {
+                        totalAttack[i] += card.AttackPoints;
+                    }
+                }
+            }
+            return totalAttack;
 
+        }
     }
 }
